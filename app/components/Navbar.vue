@@ -1,49 +1,73 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
-import { Menu, X } from "lucide-vue-next";
+import { ref, watch } from "vue"
+import { useWindowScroll } from "@vueuse/core"
+import { Menu, X, Fish } from "lucide-vue-next"
+import { navbarConfig } from "~/config/navbar.config"
 
-const navLinks = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "education", label: "Education" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-];
+const navLinks = navbarConfig.navLinks
 
-const isScrolled = ref(false);
-const isMobileMenuOpen = ref(false);
-const activeSection = ref("home");
+const isScrolled = ref(false)
+const isMobileMenuOpen = ref(false)
+const activeSection = ref("home")
 
-const scrollToSection = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  isMobileMenuOpen.value = false;
-};
+// Nuxt-friendly scroll tracking
+const { y } = useWindowScroll()
 
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50;
+// Throttled scroll handler via requestAnimationFrame
+let ticking = false
+
+const updateScrollState = () => {
+  if (!process.client) return
+
+  isScrolled.value = y.value > 50
+
+  const scrollPosition = y.value + 150
+  const pageHeight = document.documentElement.scrollHeight
+  const windowHeight = window.innerHeight
+
+  // If at bottom → activate last section
+  if (scrollPosition + windowHeight >= pageHeight - 5) {
+    activeSection.value = navLinks[navLinks.length - 1].id
+    return
+  }
 
   for (const link of navLinks) {
-    const el = document.getElementById(link.id);
-    if (el) {
-      const rect = el.getBoundingClientRect();
-      if (rect.top <= 100 && rect.bottom >= 100) {
-        activeSection.value = link.id;
-        break;
-      }
+    const el = document.getElementById(link.id)
+    if (!el) continue
+
+    const rect = el.getBoundingClientRect()
+
+    if (rect.top <= 100 && rect.bottom >= 100) {
+      activeSection.value = link.id
+      break
     }
   }
-};
+}
 
-onMounted(() => window.addEventListener("scroll", handleScroll));
-onUnmounted(() => window.removeEventListener("scroll", handleScroll));
+watch(y, () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      updateScrollState()
+      ticking = false
+    })
+    ticking = true
+  }
+})
+
+const scrollToSection = (id: string) => {
+  if (!process.client) return
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+  isMobileMenuOpen.value = false
+}
 </script>
 
 <template>
   <nav
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-gray-700' : 'bg-transparent'
+      isScrolled || isMobileMenuOpen
+        ? 'bg-black/90 backdrop-blur-md border-b border-gray-700'
+        : 'bg-transparent'
     ]"
   >
     <div class="max-w-7xl mx-auto px-6 py-4">
@@ -51,9 +75,10 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
         <!-- Logo -->
         <button
           @click="scrollToSection('home')"
-          class="text-xl font-bold text-white hover:text-[#90d5c5] transition-colors"
+          class="flex items-center text-xl font-bold text-white hover:text-[#90d5c5] transition-colors"
         >
-          Portfolio
+          <Fish class="h-6 w-6 mr-2" />
+          Huzaifah
         </button>
 
         <!-- Desktop Links -->
@@ -62,13 +87,14 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
             v-for="link in navLinks"
             :key="link.id"
             @click="scrollToSection(link.id)"
-            class="relative transition-colors transition-opacity px-4 py-2 text-sm rounded-md font-bold"
+            class="relative px-4 py-2 text-sm rounded-md font-bold transition-colors"
             :class="{
               'text-[#90d5c5] hover:bg-white/5': activeSection === link.id,
               'text-white hover:bg-white/5': activeSection !== link.id
             }"
           >
             {{ link.label }}
+
             <span
               v-if="activeSection === link.id"
               class="absolute bottom-1 left-1/2 -translate-x-1/2 w-9 h-0.5 rounded-full"
@@ -92,8 +118,10 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
           v-for="link in navLinks"
           :key="link.id"
           @click="scrollToSection(link.id)"
-          class="w-full text-left px-4 py-2 rounded hover:bg-gray-800 transition-colors"
-          :class="activeSection === link.id ? 'bg-gray-700 text-[#90d5c5]' : 'text-white'"
+          class="w-full text-right px-4 py-2 rounded transition-colors"
+          :class="activeSection === link.id
+            ? 'bg-gray-700 text-[#90d5c5]'
+            : 'text-white hover:bg-gray-800'"
         >
           {{ link.label }}
         </button>

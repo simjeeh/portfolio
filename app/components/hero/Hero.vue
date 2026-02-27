@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { heroConfig } from "@/config/hero.config"
 </script>
 
@@ -14,13 +14,10 @@ import { heroConfig } from "@/config/hero.config"
       <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-4 text-white">{{ heroConfig.name }}</h1>
       <p class="text-2xl md:text-3xl lg:text-4xl text-white/80 mb-12">{{ heroConfig.title }}</p>
       <SocialButtons
-        :github="heroConfig.socialLinks.github"
-        :linkedin="heroConfig.socialLinks.linkedin"
-        :email="heroConfig.socialLinks.email"
+        :data="heroConfig.socialLinks"
       />
       <ScrollButton
-        :text="heroConfig.scrollDown.text"
-        :targetId="heroConfig.scrollDown.target"
+        :data="heroConfig.scrollDown"
       />
     </div>
   </section>

@@ -20,9 +20,13 @@
 </style>
 
 <script setup lang="ts">
-import { ref } from "vue"
 import { Github, ExternalLink } from "lucide-vue-next"
-import { projectsConfig } from "@/config/projects.config"
+import type { ProjectCardsProps } from "@/types/props/projects/ProjectCardsProps";
+import type { ref, PropType } from "vue";
+
+const props = defineProps({
+  data: { type: Object as PropType<ProjectCardsProps["data"]>, required: true },
+});
 
 // Track flip state per card
 const flipped = ref<number | null>(null)
@@ -35,7 +39,7 @@ function toggleFlip(index: number) {
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div
-      v-for="(project, index) in projectsConfig.projects"
+      v-for="(project, index) in data.projects"
       :key="index"
       class="w-full aspect-square perspective-1000 cursor-pointer"
       tabindex="0"
@@ -64,7 +68,7 @@ function toggleFlip(index: number) {
                 {{ project.title }}
               </h3>
               <p class="text-[10px] md:text-xs text-black/30 pt-2">
-                {{ projectsConfig.frontCard.subText }}
+                {{ data.card.front.subtext }}
               </p>
             </div>
           </div>
@@ -87,7 +91,7 @@ function toggleFlip(index: number) {
 
             <div class="mt-auto">
               <p class="text-xs md:text-[10px] lg:text-xs font-semibold text-black text-left">
-                {{ projectsConfig.backCard.techStack }}
+                {{ data.card.back.techStack }}
               </p>
               <div class="flex flex-wrap gap-3 p-3">
                 <span
@@ -112,7 +116,7 @@ function toggleFlip(index: number) {
                   class="flex text-xs md:text-[10px] lg:text-xs items-center gap-2 text-black hover:text-[#90d5c5] transition-colors"
                 >
                   <Github class="h-4 w-4" />
-                  <span>{{ projectsConfig.backCard.code }}</span>
+                  <span>{{ data.card.back.code }}</span>
                 </a>
 
                 <a
@@ -123,11 +127,11 @@ function toggleFlip(index: number) {
                   class="flex text-xs md:text-[10px] lg:text-xs items-center gap-2 text-black hover:text-[#90d5c5] transition-colors"
                 >
                   <ExternalLink class="h-4 w-4" />
-                  <span>{{ projectsConfig.backCard.live }}</span>
+                  <span>{{ data.card.back.live }}</span>
                 </a>
               </div>
               <p class="text-[10px] text-black/30 text-center">
-                {{ projectsConfig.backCard.subText }}
+                {{ data.card.back.subtext }}
               </p>
             </div>
           </div>

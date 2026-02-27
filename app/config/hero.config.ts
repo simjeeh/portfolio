@@ -9,6 +9,7 @@ export const heroConfig = {
   },
   scrollDown: {
     text: "Scroll Down",
+    subtext: "↓",
     target: "about",
   }
 }

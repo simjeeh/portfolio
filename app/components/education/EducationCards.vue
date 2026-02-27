@@ -1,20 +1,11 @@
 <script setup lang="ts">
 import { GraduationCap } from "lucide-vue-next"
+import type { EducationCardsProps } from "@/types/props/education/EducationCardsProps";
+import type { PropType } from "vue";
 
-const education = [
-  {
-    degree: "Bachelor's in Computer Science",
-    institution: "University of California, Riverside",
-    location: "Riverside, CA",
-    year: "June 2020",
-  },
-  {
-    degree: "High School",
-    institution: "Sage Hill School",
-    location: "Newport Coast, CA",
-    year: "June 2016",
-  },
-]
+const props = defineProps({
+  data: { type: Object as PropType<EducationCardsProps["data"]>, required: true },
+});
 </script>
 
 
@@ -25,7 +16,7 @@ const education = [
     ></div>
 
     <div
-      v-for="(item, index) in education"
+      v-for="(item, index) in data.education"
       :key="index"
       class="relative pl-0 md:pl-20"
     >
@@ -54,7 +45,7 @@ const education = [
             </p>
 
             <p class="text-sm text-black/60 mb-2">
-              {{ item.location }} • {{ item.year }}
+              {{ item.location }} {{ data.period }} {{ item.year }}
             </p>
           </div>
         </div>

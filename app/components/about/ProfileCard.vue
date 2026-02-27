@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { Download } from "lucide-vue-next"
+import type { ProfileCardProps } from "@/types/props/about/ProfileCardProps";
+import type { PropType } from "vue";
 
-interface Props {
-  name: string
-  image: string
-  job: string
-  location: string
-  resumeUrl: string
-}
-
-defineProps<Props>()
+const props = defineProps({
+  data: { type: Object as PropType<ProfileCardProps["data"]>, required: true },
+});
 </script>
 
 <template>
@@ -23,18 +19,18 @@ defineProps<Props>()
                ring-2 ring-[#90d5c5]"
       >
         <img
-          :src="image"
-          :alt="name"
+          :src="data.image"
+          :alt="data.name"
           class="aspect-square h-full w-full object-cover"
         />
       </span>
 
       <div class="text-center md:text-left">
-        <p class="text-lg text-black mt-10">{{ job }}</p>
-        <p class="text-md text-black mb-6">{{ location }}</p>
+        <p class="text-lg text-black mt-10">{{ data.job }}</p>
+        <p class="text-md text-black mb-6">{{ data.location }}</p>
 
         <a
-          :href="resumeUrl"
+          :href="data.resume.url"
           download
           class="inline-flex items-center justify-center gap-2
                  rounded-md bg-[#90d5c5]
@@ -43,7 +39,7 @@ defineProps<Props>()
                  hover:opacity-80"
         >
           <Download class="h-4 w-4" />
-          Download Resume
+          {{ data.resume.text }}
         </a>
       </div>
     </div>

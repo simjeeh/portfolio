@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { Github, Linkedin, Mail } from "lucide-vue-next"
+import type { SocialButtonsProps } from "@/types/props/hero/SocialButtonsProps";
+import type { PropType } from "vue";
 
-defineProps({
-  github: String,
-  linkedin: String,
-  email: String
-})
+const props = defineProps({
+  data: { type: Object as PropType<SocialButtonsProps["data"]>, required: true },
+});
 </script>
 
 <template>
@@ -13,7 +13,7 @@ defineProps({
     
     <!-- GitHub -->
     <a
-      :href="github"
+      :href="data.github"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub"
@@ -25,7 +25,7 @@ defineProps({
 
     <!-- LinkedIn -->
     <a
-      :href="linkedin"
+      :href="data.linkedin"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="LinkedIn"
@@ -37,7 +37,7 @@ defineProps({
 
     <!-- Email -->
     <a
-      :href="'mailto:' + email"
+      :href="'mailto:' + data.email"
       aria-label="Email"
       class="h-12 w-12 flex items-center justify-center rounded-md transition-all duration-300
              bg-transparent hover:bg-white/5 text-white hover:text-[#90d5c5]"
