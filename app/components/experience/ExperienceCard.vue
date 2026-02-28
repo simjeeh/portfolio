@@ -28,16 +28,16 @@ function handleToggle() {
       :class="{ 'rotate-y-180': props.isFlipped }"
     >
       <!-- FRONT -->
-      <div class="absolute inset-0 backface-hidden flex flex-col">
-        <div class="rounded-xl border bg-white shadow-sm h-full p-6 flex flex-col">
-          <div class="h-1/2 flex items-center justify-center">
+      <div class="absolute inset-0 front">
+        <div class="rounded-xl border bg-white shadow-sm h-full flex flex-col p-6 overflow-y-auto front-scroll">
+          <div class="flex-shrink-0 h-1/2 flex items-center justify-center">
             <img
               :src="props.item.image"
               alt="Company logo"
               class="w-2/3 h-auto object-contain"
             />
           </div>
-          <div class="h-1/2 flex flex-col justify-end gap-1 overflow-y-auto">
+          <div class="flex-1 flex flex-col justify-end gap-1 mt-2">
             <h3 class="text-sm md:text-lg font-semibold text-black">
               {{ props.item.role }}
             </h3>
@@ -50,7 +50,7 @@ function handleToggle() {
       </div>
 
       <!-- BACK -->
-      <div class="absolute inset-0 backface-hidden rotate-y-180">
+      <div class="absolute inset-0 back rotate-y-180">
         <div class="rounded-xl border bg-white shadow-sm h-full p-4 flex flex-col border-primary/50">
           <h3 class="text-base lg:text-lg font-semibold text-black text-center">
             {{ props.card.back.title }}
@@ -91,5 +91,19 @@ function handleToggle() {
   transform-style: preserve-3d;
   position: absolute;
   inset: 0;
+}
+
+/* FRONT/BACK classes to help with mobile scroll */
+.front {
+  backface-visibility: visible; /* Ensure scroll works on mobile */
+}
+.back {
+  backface-visibility: hidden;
+}
+
+/* Mobile smooth scrolling */
+.front-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 </style>
