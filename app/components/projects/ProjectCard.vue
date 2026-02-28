@@ -63,13 +63,13 @@ function handleKey(event: KeyboardEvent) {
             <h3 class="text-base lg:text-lg font-semibold text-black">
               {{ props.project.title }}
             </h3>
-            <p class="text-sm md:text-xs lg:text-sm text-black py-6">
+            <p class="text-left text-sm md:text-xs lg:text-sm text-black py-6">
               {{ props.project.description }}
             </p>
           </div>
 
           <div class="mt-auto">
-            <p class="text-xs md:text-[10px] lg:text-xs font-semibold text-black">
+            <p class="text-left text-xs md:text-[10px] lg:text-xs font-semibold text-black">
               {{ props.cardConfig.back.techStack }}
             </p>
 

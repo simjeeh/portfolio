@@ -16,7 +16,7 @@ const { title, skillsCategories } = skillsConfig
         <div
           v-for="category in skillsCategories"
           :key="category.title"
-          class="pt-8"
+          class=""
         >
           <SkillsCategory :data="category" />
         </div>

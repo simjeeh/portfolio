@@ -28,7 +28,7 @@ function handleToggle() {
       :class="{ 'rotate-y-180': props.isFlipped }"
     >
       <!-- FRONT -->
-      <div class="absolute inset-0 backface-hidden">
+      <div class="absolute inset-0 backface-hidden flex flex-col">
         <div class="rounded-xl border bg-white shadow-sm h-full p-6 flex flex-col">
           <div class="h-1/2 flex items-center justify-center">
             <img
@@ -37,7 +37,7 @@ function handleToggle() {
               class="w-2/3 h-auto object-contain"
             />
           </div>
-          <div class="h-1/2 flex flex-col justify-end gap-1">
+          <div class="h-1/2 flex flex-col justify-end gap-1 overflow-y-auto">
             <h3 class="text-sm md:text-lg font-semibold text-black">
               {{ props.item.role }}
             </h3>
