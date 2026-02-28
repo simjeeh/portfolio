@@ -14,21 +14,21 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
-  Navbar: typeof import("../../app/components/Navbar.vue")['default']
-  About: typeof import("../../app/components/about/About.vue")['default']
-  ProfileCard: typeof import("../../app/components/about/ProfileCard.vue")['default']
-  Education: typeof import("../../app/components/education/Education.vue")['default']
-  EducationCards: typeof import("../../app/components/education/EducationCards.vue")['default']
-  Experience: typeof import("../../app/components/experience/Experience.vue")['default']
-  ExperienceCards: typeof import("../../app/components/experience/ExperienceCards.vue")['default']
-  Hero: typeof import("../../app/components/hero/Hero.vue")['default']
-  ScrollButton: typeof import("../../app/components/hero/ScrollButton.vue")['default']
-  SocialButtons: typeof import("../../app/components/hero/SocialButtons.vue")['default']
-  ProjectCards: typeof import("../../app/components/projects/ProjectCards.vue")['default']
-  Projects: typeof import("../../app/components/projects/Projects.vue")['default']
-  Divider: typeof import("../../app/components/shared/Divider.vue")['default']
-  Skills: typeof import("../../app/components/skills/Skills.vue")['default']
+  AboutProfileCard: typeof import("../../app/components/about/ProfileCard.vue")['default']
+  About: typeof import("../../app/components/about/index.vue")['default']
+  Divider: typeof import("../../app/components/divider.vue")['default']
+  EducationCard: typeof import("../../app/components/education/EducationCard.vue")['default']
+  Education: typeof import("../../app/components/education/index.vue")['default']
+  ExperienceCard: typeof import("../../app/components/experience/ExperienceCard.vue")['default']
+  Experience: typeof import("../../app/components/experience/index.vue")['default']
+  HeroScrollButton: typeof import("../../app/components/hero/ScrollButton.vue")['default']
+  HeroSocialButton: typeof import("../../app/components/hero/SocialButton.vue")['default']
+  Hero: typeof import("../../app/components/hero/index.vue")['default']
+  Navbar: typeof import("../../app/components/navbar/index.vue")['default']
+  ProjectsProjectCard: typeof import("../../app/components/projects/ProjectCard.vue")['default']
+  Projects: typeof import("../../app/components/projects/index.vue")['default']
   SkillsCategory: typeof import("../../app/components/skills/SkillsCategory.vue")['default']
+  Skills: typeof import("../../app/components/skills/index.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -52,21 +52,21 @@ interface _GlobalComponents {
   Html: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
-  LazyNavbar: LazyComponent<typeof import("../../app/components/Navbar.vue")['default']>
-  LazyAbout: LazyComponent<typeof import("../../app/components/about/About.vue")['default']>
-  LazyProfileCard: LazyComponent<typeof import("../../app/components/about/ProfileCard.vue")['default']>
-  LazyEducation: LazyComponent<typeof import("../../app/components/education/Education.vue")['default']>
-  LazyEducationCards: LazyComponent<typeof import("../../app/components/education/EducationCards.vue")['default']>
-  LazyExperience: LazyComponent<typeof import("../../app/components/experience/Experience.vue")['default']>
-  LazyExperienceCards: LazyComponent<typeof import("../../app/components/experience/ExperienceCards.vue")['default']>
-  LazyHero: LazyComponent<typeof import("../../app/components/hero/Hero.vue")['default']>
-  LazyScrollButton: LazyComponent<typeof import("../../app/components/hero/ScrollButton.vue")['default']>
-  LazySocialButtons: LazyComponent<typeof import("../../app/components/hero/SocialButtons.vue")['default']>
-  LazyProjectCards: LazyComponent<typeof import("../../app/components/projects/ProjectCards.vue")['default']>
-  LazyProjects: LazyComponent<typeof import("../../app/components/projects/Projects.vue")['default']>
-  LazyDivider: LazyComponent<typeof import("../../app/components/shared/Divider.vue")['default']>
-  LazySkills: LazyComponent<typeof import("../../app/components/skills/Skills.vue")['default']>
+  LazyAboutProfileCard: LazyComponent<typeof import("../../app/components/about/ProfileCard.vue")['default']>
+  LazyAbout: LazyComponent<typeof import("../../app/components/about/index.vue")['default']>
+  LazyDivider: LazyComponent<typeof import("../../app/components/divider.vue")['default']>
+  LazyEducationCard: LazyComponent<typeof import("../../app/components/education/EducationCard.vue")['default']>
+  LazyEducation: LazyComponent<typeof import("../../app/components/education/index.vue")['default']>
+  LazyExperienceCard: LazyComponent<typeof import("../../app/components/experience/ExperienceCard.vue")['default']>
+  LazyExperience: LazyComponent<typeof import("../../app/components/experience/index.vue")['default']>
+  LazyHeroScrollButton: LazyComponent<typeof import("../../app/components/hero/ScrollButton.vue")['default']>
+  LazyHeroSocialButton: LazyComponent<typeof import("../../app/components/hero/SocialButton.vue")['default']>
+  LazyHero: LazyComponent<typeof import("../../app/components/hero/index.vue")['default']>
+  LazyNavbar: LazyComponent<typeof import("../../app/components/navbar/index.vue")['default']>
+  LazyProjectsProjectCard: LazyComponent<typeof import("../../app/components/projects/ProjectCard.vue")['default']>
+  LazyProjects: LazyComponent<typeof import("../../app/components/projects/index.vue")['default']>
   LazySkillsCategory: LazyComponent<typeof import("../../app/components/skills/SkillsCategory.vue")['default']>
+  LazySkills: LazyComponent<typeof import("../../app/components/skills/index.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
