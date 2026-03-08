@@ -8,7 +8,7 @@ export const aboutConfig: AboutConfig = {
     job: "Senior Software Engineer at Nvidia",
     location: "Based in Orange County, California",
     resume: {
-      text: "Download Resume",
+      text: "View Resume",
       url: "https://drive.google.com/file/d/1PCijtW9K4eU_in4ENpVuxH1MNMG9Vnby/view?usp=sharing",
     },
   },

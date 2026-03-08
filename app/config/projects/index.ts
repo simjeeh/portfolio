@@ -123,6 +123,16 @@ export const projectsConfig = {
         code: "https://github.com/hsimjee/The-Toothpick-Game",
         image: '/projects/toothpick.png',
       },
+      {
+        id: 11,
+        title: "Trees",
+        description: "Created AVL and 2-3 trees with preorder, inorder, and postorder transversals",
+        techStack: [
+          "C++",
+        ],
+        code: "https://github.com/simjeeh/Trees",
+        image: '/projects/trees.png',
+      },
     ],
   },
 }

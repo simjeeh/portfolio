@@ -86,12 +86,6 @@ function handleToggle() {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
-.backface-hidden {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  position: absolute;
-  inset: 0;
-}
 
 /* FRONT/BACK classes to help with mobile scroll */
 .front {

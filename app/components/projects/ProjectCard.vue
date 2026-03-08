@@ -39,7 +39,7 @@ function handleKey(event: KeyboardEvent) {
       <!-- FRONT -->
       <div class="absolute inset-0 backface-hidden">
         <div class="flex flex-col h-full rounded-xl bg-white overflow-hidden">
-          <div class="flex-1">
+          <div class="flex-[3] min-h-0">
             <img
               :src="props.project.image"
               :alt="`Screenshot of ${props.project.title}`"
@@ -47,7 +47,7 @@ function handleKey(event: KeyboardEvent) {
               class="w-full h-full object-cover"
             />
           </div>
-          <div class="flex-1 flex flex-col justify-start px-6 py-4">
+          <div class="flex-[1] flex flex-col justify-end px-6 pb-4">
             <h3 class="text-xl font-semibold text-black">{{ props.project.title }}</h3>
             <p class="text-[10px] md:text-xs text-black/30 pt-2">
               {{ props.cardConfig.front.subtext }}

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ProfileCardData } from "~/types/about"
-import { Download } from "lucide-vue-next"
+import { FileUser } from "lucide-vue-next"
 
 const props = defineProps<{ data: ProfileCardData }>()
 </script>
@@ -34,7 +34,7 @@ const props = defineProps<{ data: ProfileCardData }>()
                  text-black transition-all duration-300
                  hover:opacity-80"
         >
-          <Download class="h-4 w-4" />
+          <FileUser class="h-4 w-4" />
           {{ data.resume.text }}
         </a>
       </div>
