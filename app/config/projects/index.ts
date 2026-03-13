@@ -58,7 +58,7 @@ export const projectsConfig = {
           "C++",
           "Make",
         ],
-        code: "https://github.com/simjeeh/Keyboard-Hero",
+        code: "https://github.com/simjeeh/keyboard-hero",
         image: "/projects/keyboardhero.jpg",
       },
       {
@@ -68,7 +68,7 @@ export const projectsConfig = {
         techStack: [
           "Arduino",
         ],
-        code: "https://github.com/simjeeh/Ocular-Echo",
+        code: "https://github.com/simjeeh/ocular-echo",
         image: "/projects/ocularecho.jpg",
       },
       {
@@ -79,7 +79,7 @@ export const projectsConfig = {
           "HTML",
           "CSS",
         ],
-        code: "https://github.com/simjeeh/SentimentalGifts",
+        code: "https://github.com/simjeeh/sentimental-gifts",
         live: "https://www.sentimentalgifts.shop",
         image: '/projects/sentimentalgifts.png',
       },
@@ -90,7 +90,7 @@ export const projectsConfig = {
         techStack: [
           "C++",
         ],
-        code: "https://github.com/simjeeh/Cutie-Hack-2017",
+        code: "https://github.com/simjeeh/cutie-hack-2017",
         image: '/projects/goldenbearclawadventure.png',
       },
       {
@@ -100,7 +100,7 @@ export const projectsConfig = {
         techStack: [
           "C++",
         ],
-        code: "https://github.com/simjeeh/Bulletin-Board",
+        code: "https://github.com/simjeeh/bulletin-board",
         image: '/projects/bboard.jpg',
       },
       {
@@ -110,7 +110,7 @@ export const projectsConfig = {
         techStack: [
           "Java",
         ],
-        code: "https://github.com/simjeeh/Battleship",
+        code: "https://github.com/simjeeh/battleship",
         image: '/projects/battleship.png',
       },
       {
@@ -120,7 +120,7 @@ export const projectsConfig = {
         techStack: [
           "Java",
         ],
-        code: "https://github.com/hsimjee/The-Toothpick-Game",
+        code: "https://github.com/hsimjee/the-toothpick-game",
         image: '/projects/toothpick.png',
       },
       {
@@ -130,7 +130,7 @@ export const projectsConfig = {
         techStack: [
           "C++",
         ],
-        code: "https://github.com/simjeeh/Trees",
+        code: "https://github.com/simjeeh/trees",
         image: '/projects/trees.png',
       },
     ],
