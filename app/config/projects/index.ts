@@ -14,7 +14,7 @@ export const projectsConfig = {
       {
         id: 1,
         title: "Portfolio",
-        description: "Created fullstack website",
+        description: "A personal portfolio site where I document my journey as a software engineer — covering the projects I've worked on, the skills I've picked up, and the education behind it all",
         techStack: [
           "Nuxt",
           "Vue.js",
